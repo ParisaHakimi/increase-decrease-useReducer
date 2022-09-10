@@ -1,27 +1,30 @@
 import { useReducer } from "react";
 import "./App.css";
 
-function App() {
+const App2 = () => {
   const initialState = { count: 0 };
   const reducer = (state, action) => {
     switch (action.type) {
-      case "increament":
+      case "increment":
         return { count: state.count + 1 };
-      case "decreament":
+      case "decrement":
         return { count: state.count - 1 };
       default:
         return state;
     }
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-
   return (
     <div className="App">
-      <button onClick={() => dispatch({ type: "decreament" })}>-</button>
-      <span>{state.count}</span>
-      <button onClick={() => dispatch({ type: "increament" })}>+</button>
+      <button className="mines" onClick={() => dispatch({ type: "decrement" })}>
+        -
+      </button>
+      <span>count: {state.count}</span>
+      <button className="plus" onClick={() => dispatch({ type: "increment" })}>
+        +
+      </button>
     </div>
   );
-}
+};
 
-export default App;
+export default App2;
